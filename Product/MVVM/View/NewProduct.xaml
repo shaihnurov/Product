@@ -1,0 +1,93 @@
+﻿<Window x:Class="Product.MVVM.View.NewProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Product.MVVM.View"
+        xmlns:viewModel="clr-namespace:Product.MVVM.ViewModel"
+        mc:Ignorable="d" WindowStartupLocation="CenterOwner"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        Title="Добавить продукт" Height="380" Width="400" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True" Background="Transparent">
+
+    <Window.DataContext>
+        <viewModel:NewProductViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#1B1B4F" CornerRadius="20">
+        <StackPanel Cursor="">
+            <Grid Margin="100, -365, 0, 0"
+                  Panel.ZIndex="-1">
+
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="50"/>
+                </Grid.RenderTransform>
+
+                <StackPanel Orientation="Horizontal" Margin="-250, 400, -255, -250">
+
+                    <StackPanel>
+                        <Border Width="700" Height="35" Background="#F800D2"
+                                Margin="100,0,0,0" CornerRadius="20"/>
+
+                        <Border Width="700" Height="35" Background="#F8DA00"
+                                Margin="0,15,0,0" CornerRadius="20"/>
+
+                        <Border Width="700" Height="35" Background="#40C846"
+                                Margin="75,15,0,0" CornerRadius="20"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Новый продукт" FontFamily="Fonts/#Dosis" HorizontalAlignment="Center"
+                            FontSize="20" Foreground="White" Margin="0,10,0,0" FontWeight="Light"/>
+
+                <TextBox mah:TextBoxHelper.Watermark="Укажите название продукта" Width="200" Margin="10" 
+                            Background="#1B1B4F" Foreground="White" 
+                         Text="{Binding NewItem.Name, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <ComboBox SelectedItem="{Binding SelectedUClassType, UpdateSourceTrigger=PropertyChanged}"
+                          ItemsSource="{Binding UClassValues}"
+                          mah:TextBoxHelper.Watermark="Выбирете категорию" 
+                         Width="200" Margin="10" Background="#1B1B4F" Foreground="White">
+                </ComboBox>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Б" Style="{StaticResource TextBlockTheme}" FontSize="12"
+                               Background="#1B1B4F" Foreground="White" Margin="83,8,0,0"/>
+                    <TextBox Text="{Binding NewItem.Proteins, UpdateSourceTrigger=PropertyChanged}" 
+                                Width="200" Margin="10,0,0,0" Background="#1B1B4F" Foreground="White"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Ж" Style="{StaticResource TextBlockTheme}" FontSize="12"
+                               Background="#1B1B4F" Foreground="White" Margin="79,15,0,0"/>
+                    <TextBox Text="{Binding NewItem.Fats, UpdateSourceTrigger=PropertyChanged}" 
+                                Width="200" Margin="11,10,0,0" Background="#1B1B4F" Foreground="White"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="У" Style="{StaticResource TextBlockTheme}" FontSize="12"
+                               Background="#1B1B4F" Foreground="White" Margin="83,15,0,0"/>
+                    <TextBox Text="{Binding NewItem.Carbohy, UpdateSourceTrigger=PropertyChanged}" 
+                                Width="200" Margin="11,10,0,0" Background="#1B1B4F" Foreground="White"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Ккил" Style="{StaticResource TextBlockTheme}" FontSize="12"
+                               Background="Transparent" Foreground="White" Margin="63,15,0,0"/>
+                    <TextBox Text="{Binding NewItem.Kilocalories, UpdateSourceTrigger=PropertyChanged}" 
+                                Width="200" Margin="11,10,0,0" Background="#1B1B4F" Foreground="White"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource ButtonTheme}" Content="Добавить" Command="{Binding AddItemCommand}"
+                            CommandParameter="{Binding NewItem, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button Style="{StaticResource ButtonTheme}" Content="Отменить" Command="{Binding ClickBack}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
+
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

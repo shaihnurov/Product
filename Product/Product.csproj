@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Dosis.ttf" />
+    <None Remove="Image\iconsMenu\bread.png" />
+    <None Remove="Image\iconsMenu\cookies.png" />
+    <None Remove="Image\iconsMenu\fruit.png" />
+    <None Remove="Image\iconsMenu\grain.png" />
+    <None Remove="Image\iconsMenu\meat.png" />
+    <None Remove="Image\iconsMenu\milk.png" />
+    <None Remove="Image\iconsMenu\other.png" />
+    <None Remove="Image\iconsMenu\tea.png" />
+    <None Remove="Image\iconsMenu\vegetable.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Dosis.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\iconsMenu\other.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\iconsMenu\bread.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\iconsMenu\cookies.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\iconsMenu\fruit.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\iconsMenu\grain.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\iconsMenu\meat.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\iconsMenu\milk.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\iconsMenu\tea.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\iconsMenu\vegetable.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

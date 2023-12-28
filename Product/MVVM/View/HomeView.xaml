@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="Product.MVVM.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Product.MVVM.View"
+             xmlns:viewModel="clr-namespace:Product.MVVM.ViewModel"
+             mc:Ignorable="d" Background="Transparent"
+             d:DesignHeight="550" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <viewModel:HomeViewModel/>
+    </UserControl.DataContext>
+    
+    <Border>
+        <Grid HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border CornerRadius="20" Background="#15153C" Width="450" Grid.Row="1" Grid.Column="1"
+                    HorizontalAlignment="Left" Margin="20,0,0,0">
+
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Style="{StaticResource TextBlockTheme}" Text="Выберите продукт"
+                               VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Style="{StaticResource TextBlockTheme}" Text="Категория: " 
+                                   Margin="0,10,0,0" FontSize="20" FontWeight="UltraLight"/>
+                        <TextBlock Style="{StaticResource TextBlockTheme}" 
+                                   Text="{Binding ProductNameTitle}" 
+                                   Margin="0,10,0,0" FontWeight="UltraLight" FontSize="20"/>
+                    </StackPanel>
+
+                    <ItemsControl ItemsSource="{Binding DataList}" HorizontalAlignment="Center"
+                                  Margin="0,30,0,0">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Style="{StaticResource TextBlockTheme}" Text="{Binding Name}"
+                                           FontSize="20" FontWeight="UltraLight"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </StackPanel>
+            </Border>
+
+            <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center">
+                <Button Content="Крупы" Style="{StaticResource ButtonTheme}" 
+                        Height="35" Background="#0F0F2D" Command="{Binding ClickButtonGrainsCommand}"/>
+                <Button Content="Хлебные изделия" Style="{StaticResource ButtonTheme}" Height="35" Background="#0F0F2D"
+                        Command="{Binding ClickButtonBreadCommand}"/>
+                <Button Content="Сладости" Style="{StaticResource ButtonTheme}" Height="35" Background="#0F0F2D"
+                        Command="{Binding ClickButtonSweetsCommand}"/>
+                <Button Content="Фрукты" Style="{StaticResource ButtonTheme}" Height="35" Background="#0F0F2D"
+                        Command="{Binding ClickButtonFruitCommand}"/>
+                <Button Content="Овощи" Style="{StaticResource ButtonTheme}" Height="35" Background="#0F0F2D"
+                        Command="{Binding ClickButtonVegetableCommand}"/>
+                <Button Content="Напитки" Style="{StaticResource ButtonTheme}" Height="35" Background="#0F0F2D"
+                        Command="{Binding ClickButtonDrinkCommand}"/>
+                <Button Content="Молочные изделия" Style="{StaticResource ButtonTheme}" Height="35" Background="#0F0F2D"
+                        Command="{Binding ClickButtonMilkCommand}"/>
+                <Button Content="Мясо и яйца" Style="{StaticResource ButtonTheme}" Height="35" Background="#0F0F2D"
+                        Command="{Binding ClickButtonMeatCommand}"/>
+                <Button Content="Прочее" Style="{StaticResource ButtonTheme}" Height="35" Background="#0F0F2D"
+                        Command="{Binding ClickButtonOtherCommand}"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
